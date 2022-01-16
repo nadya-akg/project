@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Fusion</title>
+	<link rel="shortcut icon" href="/assets/images/icon/icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/assets/css/normalize.css">
+	<link rel = "stylesheet" href = "/assets/css/style.css">
+    <link rel = "stylesheet" href = "/assets/css/media.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type = "module" src = "/assets/app.js"></script> 
+    <script type = "text/javascript" src = "/assets/scroll.js"></script> 
+</head>
+<body>
+    <main> 
+        <header class = "homepage">
+            <div class = "container">
+                <h1 class = "homepage__heading">
+                    We're <span style="color: #cc9933;">Fusion</span>, We Build Things for Human
+                </h1>
+                <nav class = "homepage__nav">
+                    <a class = "homepage__nav-link" href="#">
+                        Design
+                    </a>
+                    <div class = "homepage__nav-line"></div>
+                    <a class = "homepage__nav-link" href="#">
+                        Strategy
+                    </a>
+                    <div class = "homepage__nav-line"></div>
+                    <a class = "homepage__nav-link" href="#">
+                        Branding
+                    </a>
+                </nav>
+                <button onclick="scrollToHandler('Services')" class = "homepage__scroll-down"></button>
+                <nav class = "homepage__get-in-touch">
+                    <div class = "logo"></div>
+                    <button onclick="scrollToHandler('Contact')" class = "link">
+                        <div class = "link-text">Get in touch</div>
+                        <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                    </button>
+                </nav>
+            </div>
+        </header>
+        <div class = "services" id = "Services">
+            <div class = "container">
+                <h4 class = "block__title">Our services</h4>
+                <h2 class = "block__desc">Our team will take your bussines presence to new level</h2>
+                <ol class = "services__services">
+                    <li class = "services__service">
+                        <img class = "service__icon" width="21" height="21" src = "/assets/images/services/services_icon1.png" alt="service icon">
+                        <h3 class = "service__title">Strategy.</h3>
+                        <p class = "service__desc">Ship it user story iterate engaging co-working intuitive pitch deck hacker prototype SpaceTeam user centered design big data.</p>
+                        <a class = "service__details link">
+                            <div class = "details__link-text link-text">See details</div>
+                            <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                        </a>
+                    </li>
+                    <li class = "services__service">
+                        <img class = "service__icon" width="21" height="21" src = "/assets/images/services/services_icon2.png" alt="service icon">
+                        <h3 class = "service__title">Branding.</h3>
+                        <p class = "service__desc">Ship it user story iterate engaging co-working intuitive pitch deck hacker prototype SpaceTeam user centered design big data.</p>
+                        <a class = "service__details link">
+                            <div class = "details__link-text link-text">See details</div>
+                            <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                        </a>
+                    </li>
+                    <li class = "services__service">
+                        <img class = "service__icon" width="16" height="21" src = "/assets/images/services/services_icon3.png" alt="service icon">
+                        <h3 class = "service__title">Design.</h3>
+                        <p class = "service__desc">Ship it user story iterate engaging co-working intuitive pitch deck hacker prototype SpaceTeam user centered design big data.</p>
+                        <a class = "service__details link">
+                            <div class = "details__link-text link-text">See details</div>
+                            <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class = "portfolio" id = "sliderPortfolio" v-cloak>
+            <div class = "container">
+                <div class = "portfolio__project">
+                    <img class = "portfolio__project-img" v-bind:src = "project.pic" alt="Project picture">
+                    <h4 class = "portfolio__project-service">{{project.service}}</h4>
+                    <h1 class = "portfolio__project-name">{{project.name}}</h1>
+                    <a class = "portfolio__project-details link" style = "margin-bottom: 35px;" v-bind:href="project.details">
+                        <div class = "portfolio__project-details-text">Project details</div>
+                        <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                    </a>
+                    <a class = "portfolio__project-details link" v-bind:href="project.slides">
+                        <div class = "portfolio__project-details-text">Viev slides</div>
+                        <img class = "link-arrow" width="11" height="7" src = "/assets/images/nav/arrow1.png" alt="arrow">
+                    </a>
+                </div>
+                <ol class="slider__indicators">
+                    <li class= "slider__indicator" v-for = "n in projects">
+                        <button class = "slider__indicator-button slider__indicator-button_active" v-on:click="move(n)" v-if = "project == n"></button>
+                        <button class = "slider__indicator-button" v-on:click="move(n)" v-else></button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class = "testimoials">
+            <div class = "container" id = "sliderTestimoial" v-cloak>
+                <h4 class = "block__title">Testimoials</h4>
+                <h2 class = "block__desc">We have worked with some amazing companies around the world</h2>
+                <ol class = "testimoials__companies">
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="152" height="25" src="/assets/images/companies/autodesk.png" alt="Autodesk">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="71" height="44" src="/assets/images/companies/mastercard.png" alt="MasterCard">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="92" height="28" src="/assets/images/companies/intuit.png" alt="Intuit">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="68" height="42" src="/assets/images/companies/mtv.png" alt="MTV">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="116" height="30" src="/assets/images/companies/pinterest.png" alt="Pinterest">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="84" height="59" src="/assets/images/companies/salesforce.png" alt="Salesforce">
+                    </li>
+                    <li class = "testimoials__company">
+                        <img class = "testimoials__company-icon" width="76" height="24" src="/assets/images/companies/visa.png" alt="Visa" style="filter: grayscale(100%);">
+                    </li>
+                </ol>
+                <div class ="testimoials__feedback">
+                    <img class = "feedback__pic" width="75" height="75" v-bind:src="testimoial.pic" alt="Feedback">
+                    <q class = "feedback__message">{{testimoial.message}}</q>
+                    <h4 class = "feedback__author">{{testimoial.author}}</h4>
+                    <div class = "feedback__company">{{testimoial.company}}</div>
+                </div>
+                <ol class="slider__indicators">
+                    <li class = "slider__indicator" v-for = "n in testimoials">
+                        <button class = "slider__indicator-button slider__indicator-button_active" v-on:click="move(n)" v-if = "testimoial == n"></button>
+                        <button class = "slider__indicator-button" v-on:click="move(n)" v-else></button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class = "team">
+            <div class = "container">
+                <h4 class = "block__title">Our team</h4>
+                <h2 class = "block__desc">Our Amazing Team</h2>
+                <ol class = "team__profiles">
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile1.png" alt = "Profile 1">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Vincent Gardner</div>
+                            <div class = "team__profile-field">Founder & CEO</div>
+                        </div>
+                        <div class = "team__profile-desc">Vincent is the Founder & CEO of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile2.png" alt = "Profile 2">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Donna Watson</div>
+                            <div class = "team__profile-field">VP of Product</div>
+                        </div>
+                        <div class = "team__profile-desc">Donna is the VP of Product of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile3.png" alt = "Profile 3">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Armando Angeles</div>
+                            <div class = "team__profile-field">VP of Business</div>
+                        </div>
+                        <div class = "team__profile-desc">Armando is the VP of Business of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile4.png" alt = "Profile 4">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Nguyen Thanh</div>
+                            <div class = "team__profile-field">Developer</div>
+                        </div>
+                        <div class = "team__profile-desc">Nguyen is the Developer of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile1.png" alt = "Profile 1">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Vincent Gardner</div>
+                            <div class = "team__profile-field">Founder & CEO</div>
+                        </div>
+                        <div class = "team__profile-desc">Vincent is the Founder & CEO of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile2.png" alt = "Profile 2">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Donna Watson</div>
+                            <div class = "team__profile-field">VP of Product</div>
+                        </div>
+                        <div class = "team__profile-desc">Donna is the VP of Product of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile3.png" alt = "Profile 3">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Armando Angeles</div>
+                            <div class = "team__profile-field">VP of Business</div>
+                        </div>
+                        <div class = "team__profile-desc">Armando is the VP of Business of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                    <li class = "team__profile">
+                        <img class = "team__profile-photo" src="/assets/images/profiles/profile4.png" alt = "Profile 4">
+                        <div class = "team__profile-info">
+                            <div class = "team__profile-name">Nguyen Thanh</div>
+                            <div class = "team__profile-field">Developer</div>
+                        </div>
+                        <div class = "team__profile-desc">Nguyen is the Developer of Fusion. He is leading the company to success with his experience & skill. Leader piverate paradigm cortado ship it integrate Space Team parallax persons grok. Parallax food truck fund 360 campaign venture capital pitch deck actionable insight innovate.</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class = "contact" id = "Contact">
+            <div class = "container">
+                <h4 class = "block__title">Contact us</h4>
+                <h2 class = "block__desc">Let's talk about the project</h2>
+                <form class = "contact__form" id = "contactForm" @submit.prevent="getInTouch" v-cloak>
+                    <div class = "contact__form-input-name">
+                        <input class = "contact__form-input" id = "nameInput" type="text" autocomplete="off" v-model="form.name">
+                    </div>
+                    <div class = "contact__form-input-email">
+                        <input class = "contact__form-input" id = "emailInput" type="text" autocomplete="off" v-model="form.email">
+                    </div>
+                    <div class = "contact__form-input-company">
+                        <input class = "contact__form-input" id = "companyInput" type="text" autocomplete="off" v-model="form.company">
+                    </div>
+                    <div class = "contact__form-input-subject">
+                        <input class = "contact__form-input" id = "subjectInput" type="text" autocomplete="off" v-model="form.subject">
+                    </div>
+                    <div class = "contact__form-input-message input_focus">
+                        <input class = "contact__form-input" id = "messageInput" type="text" autocomplete="off" v-model="form.message">
+                    </div>
+                    <button class = "contact__form-button" type = "submit" :disabled = "!canAdd">
+                        <div class = "link">
+                            <div class = "form-button__link-text link-text">Get in touch</div>
+                            <img class = "form-button__link-arrow" width="18" height="11" src = "/assets/images/nav/arrow2.png" alt="arrow">
+                        </div>
+                    </button>
+                </form>
+                <footer class = "contact__footer">
+                    <div class = "logo"></div>
+                    <div class = "footer__office">
+                        <h4 class = "footer__office-title">California office</h4>
+                        <div class = "footer__office-info">4243 Woodland Terrace Sacramento, CA 95814<br>916 753 2645</div>
+                    </div>
+                    <div class = "footer__office">
+                        <h4 class = "footer__office-title">New York office</h4>
+                        <div class = "footer__office-info">885 Oakwood Avenue New York, NY 10013<br>212 660 0744</div>
+                    </div>
+                    <div class = "footer__other">
+                        <h4 class = "footer__other-title">Other contact</h4>
+                        <div class = "footer__other-info">jobs@templateocean.com</div>
+                        <div class = "footer__other-socials">
+                            <a class = "footer__other-social" href = "https://facebook.com/">
+                                <img class = "footer__other-social-img" width="25" height="25" src="/assets/images/socials/facebook.png" alt="Facebook">
+                            </a>
+                            <a class = "footer__other-social" href = "https://twitter.com/">
+                                <img class = "footer__other-social-img" width="25" height="25" src="/assets/images/socials/twitter.png" alt="Twitter">
+                            </a>
+                            <a class = "footer__other-social" href = "https://pinterest.com/">
+                                <img class = "footer__other-social-img" width="25" height="25" src="/assets/images/socials/pinterest.png" alt="Pinterest">
+                            </a>
+                            <a class = "footer__other-social" href = "https://instagram.com/">
+                                <img class = "footer__other-social-img" width="25" height="25" src="/assets/images/socials/instagram.png" alt="Instagram">
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
